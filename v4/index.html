@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SocialPro - Premium Social Media</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/v4/style.css" />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+      <div class="loading-content">
+        <div class="loading-logo">
+          <div class="logo-icon">SP</div>
+        </div>
+        <div class="loading-text">SocialPro</div>
+        <div class="loading-spinner">
+          <div class="spinner-ring"></div>
+          <div class="spinner-ring"></div>
+          <div class="spinner-ring"></div>
+        </div>
+      </div>
+      <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Auth Pages Container -->
+    <div id="authContainer" class="auth-container">
+      <!-- Login Page -->
+      <div id="loginPage" class="auth-page active">
+        <div class="auth-background">
+          <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+          </div>
+        </div>
+        <div class="auth-content">
+          <div class="auth-card">
+            <div class="auth-header">
+              <div class="logo">
+                <div class="logo-icon">SP</div>
+                <span>SocialPro</span>
+              </div>
+              <h2>Welcome Back</h2>
+              <p>Sign in to continue your social journey</p>
+            </div>
+            <form id="loginForm" class="auth-form">
+              <div class="form-group">
+                <input type="email" id="loginEmail" required />
+                <label for="loginEmail">Email Address</label>
+                <div class="form-highlight"></div>
+                <div class="error-message"></div>
+              </div>
+              <div class="form-group">
+                <input type="password" id="loginPassword" required />
+                <label for="loginPassword">Password</label>
+                <div class="form-highlight"></div>
+                <div class="error-message"></div>
+                <button type="button" class="password-toggle">
+                  <span class="eye-icon">👁️</span>
+                </button>
+              </div>
+              <div class="form-options">
+                <label class="checkbox-container">
+                  <input type="checkbox" id="rememberMe" />
+                  <span class="checkmark"></span>
+                  Remember me
+                </label>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+              </div>
+              <button type="submit" class="btn btn-primary btn-ripple">
+                <span class="btn-text">Sign In</span>
+                <div class="btn-loader hidden">
+                  <div class="btn-spinner"></div>
+                </div>
+              </button>
+            </form>
+            <div class="auth-footer">
+              <p>
+                Don't have an account?
+                <a href="#" id="showRegister">Create Account</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Register Page -->
+      <div id="registerPage" class="auth-page">
+        <div class="auth-background">
+          <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+          </div>
+        </div>
+        <div class="auth-content">
+          <div class="auth-card">
+            <div class="auth-header">
+              <div class="logo">
+                <div class="logo-icon">SP</div>
+                <span>SocialPro</span>
+              </div>
+              <h2>Join SocialPro</h2>
+              <p>Create your account and connect with the world</p>
+            </div>
+            <form id="registerForm" class="auth-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text" id="firstName" required />
+                  <label for="firstName">First Name</label>
+                  <div class="form-highlight"></div>
+                  <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="lastName" required />
+                  <label for="lastName">Last Name</label>
+                  <div class="form-highlight"></div>
+                  <div class="error-message"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="email" id="registerEmail" required />
+                <label for="registerEmail">Email Address</label>
+                <div class="form-highlight"></div>
+                <div class="error-message"></div>
+                <div class="success-message"></div>
+              </div>
+              <div class="form-group">
+                <input type="password" id="registerPassword" required />
+                <label for="registerPassword">Password</label>
+                <div class="form-highlight"></div>
+                <div class="error-message"></div>
+                <button type="button" class="password-toggle">
+                  <span class="eye-icon">👁️</span>
+                </button>
+                <div class="password-strength">
+                  <div class="strength-bar">
+                    <div class="strength-fill"></div>
+                  </div>
+                  <div class="strength-text">Password Strength</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="password" id="confirmPassword" required />
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="form-highlight"></div>
+                <div class="error-message"></div>
+                <div class="success-message"></div>
+              </div>
+              <div class="form-options">
+                <label class="checkbox-container">
+                  <input type="checkbox" id="agreeTerms" required />
+                  <span class="checkmark"></span>
+                  I agree to the <a href="#">Terms of Service</a> and
+                  <a href="#">Privacy Policy</a>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-ripple">
+                <span class="btn-text">Create Account</span>
+                <div class="btn-loader hidden">
+                  <div class="btn-spinner"></div>
+                </div>
+              </button>
+            </form>
+            <div class="auth-footer">
+              <p>
+                Already have an account? <a href="#" id="showLogin">Sign In</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="mainApp" class="main-app hidden">
+      <!-- Navigation Header -->
+      <header class="main-header">
+        <div class="header-content">
+          <div class="header-left">
+            <div class="logo">
+              <div class="logo-icon">SP</div>
+              <span>SocialPro</span>
+            </div>
+          </div>
+          <div class="header-center">
+            <div class="search-container">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search users, posts..."
+              />
+              <div class="search-icon">🔍</div>
+              <div class="search-results" id="searchResults"></div>
+              <div class="search-suggestions" id="searchSuggestions">
+                <div class="suggestion-item">
+                  <div class="suggestion-icon">🔍</div>
+                  <span>Try searching for "design trends"</span>
+                </div>
+                <div class="suggestion-item">
+                  <div class="suggestion-icon">👥</div>
+                  <span>Find friends</span>
+                </div>
+                <div class="suggestion-item">
+                  <div class="suggestion-icon">📸</div>
+                  <span>Photography posts</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="header-actions">
+              <button class="action-btn" id="notificationsBtn">
+                <span class="icon">🔔</span>
+                <div class="notification-badge">3</div>
+              </button>
+              <button class="action-btn" id="messagesBtn">
+                <span class="icon">💬</span>
+                <div class="notification-badge">2</div>
+              </button>
+              <div class="user-dropdown" id="userDropdown">
+                <button class="user-avatar-btn">
+                  <div class="user-avatar">
+                    <img
+                      src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop&crop=face"
+                      alt="User"
+                    />
+                    <div class="online-status"></div>
+                  </div>
+                </button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-header">
+                    <div class="user-info">
+                      <div class="user-avatar-small">
+                        <img
+                          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50&h=50&fit=crop&crop=face"
+                          alt="User"
+                        />
+                      </div>
+                      <div class="user-details">
+                        <div class="user-name">John Doe</div>
+                        <div class="user-email">john@example.com</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item" data-page="profile">
+                    <span class="icon">👤</span>
+                    <span>Profile</span>
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <span class="icon">🌙</span>
+                    <span>Dark Mode</span>
+                  </a>
+                  <a href="#" class="dropdown-item">
+                    <span class="icon">❓</span>
+                    <span>Help & Support</span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item" id="logoutBtn">
+                    <span class="icon">🚪</span>
+                    <span>Sign Out</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Feed Page -->
+        <div id="feedPage" class="page active">
+          <div class="feed-container">
+            <div class="feed-header">
+              <h1>Your Feed</h1>
+              <button class="btn btn-primary btn-ripple" id="createPostBtn">
+                <span class="btn-text">✨ Create Post</span>
+              </button>
+            </div>
+
+            <!-- Create Post Section -->
+            <div class="create-post-card">
+              <div class="create-post-header">
+                <div class="user-avatar">
+                  <img
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50&h=50&fit=crop&crop=face"
+                    alt="User"
+                  />
+                </div>
+                <div class="create-post-input">
+                  <textarea
+                    placeholder="What's on your mind, John?"
+                    id="postContent"
+                    maxlength="500"
+                  ></textarea>
+                  <div class="char-counter">
+                    <span id="charCount">0</span>/500
+                  </div>
+                </div>
+              </div>
+              <div class="create-post-actions">
+                <div class="post-options">
+                  <button class="option-btn">
+                    <span class="icon">📷</span>
+                    <span>Photo</span>
+                  </button>
+                  <button class="option-btn">
+                    <span class="icon">🎥</span>
+                    <span>Video</span>
+                  </button>
+                  <button class="option-btn">
+                    <span class="icon">😊</span>
+                    <span>Feeling</span>
+                  </button>
+                  <button class="option-btn">
+                    <span class="icon">📍</span>
+                    <span>Location</span>
+                  </button>
+                </div>
+                <button
+                  class="btn btn-primary btn-ripple"
+                  id="submitPost"
+                  disabled
+                >
+                  <span class="btn-text">Post</span>
+                  <div class="btn-loader hidden">
+                    <div class="btn-spinner"></div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Posts Container -->
+            <div class="posts-container" id="postsContainer">
+              <div class="skeleton-loader">
+                <div class="skeleton-post">
+                  <div class="skeleton-header">
+                    <div class="skeleton-avatar"></div>
+                    <div class="skeleton-user-info">
+                      <div class="skeleton-line skeleton-name"></div>
+                      <div class="skeleton-line skeleton-time"></div>
+                    </div>
+                  </div>
+                  <div class="skeleton-content">
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line short"></div>
+                  </div>
+                  <div class="skeleton-image"></div>
+                  <div class="skeleton-actions">
+                    <div class="skeleton-btn"></div>
+                    <div class="skeleton-btn"></div>
+                    <div class="skeleton-btn"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profilePage" class="page">
+          <div class="profile-container">
+            <div class="profile-cover">
+              <img
+                src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&h=300&fit=crop"
+                alt="Cover"
+                class="cover-image"
+              />
+              <div class="cover-overlay"></div>
+              <button class="edit-cover-btn">
+                <span class="icon">📷</span>
+                <span>Edit Cover</span>
+              </button>
+            </div>
+
+            <div class="profile-info">
+              <div class="profile-avatar-section">
+                <div class="profile-avatar">
+                  <img
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face"
+                    alt="Profile"
+                  />
+                  <div class="online-status large"></div>
+                  <button class="edit-avatar-btn">
+                    <span class="icon">📷</span>
+                  </button>
+                </div>
+                <div class="profile-details">
+                  <h1>John Doe</h1>
+                  <p class="profile-bio">
+                    🚀 Full-stack developer passionate about creating amazing
+                    user experiences. Coffee enthusiast ☕ | Tech lover 💻
+                  </p>
+                  <div class="profile-meta">
+                    <span class="meta-item">
+                      <span class="icon">📍</span>
+                      <span>San Francisco, CA</span>
+                    </span>
+                    <span class="meta-item">
+                      <span class="icon">📅</span>
+                      <span>Joined March 2023</span>
+                    </span>
+                    <span class="meta-item">
+                      <span class="icon">🔗</span>
+                      <span>johndoe.dev</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="profile-actions">
+                  <button class="btn btn-outline btn-ripple">
+                    <span class="btn-text">Edit Profile</span>
+                  </button>
+                  <button class="btn btn-primary btn-ripple">
+                    <span class="btn-text">Share Profile</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="profile-stats">
+                <div class="stat-card">
+                  <div class="stat-number">1,234</div>
+                  <div class="stat-label">Posts</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">15.2K</div>
+                  <div class="stat-label">Followers</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">892</div>
+                  <div class="stat-label">Following</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">45.8K</div>
+                  <div class="stat-label">Likes</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-content">
+              <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="posts">Posts</button>
+                <button class="tab-btn" data-tab="media">Media</button>
+                <button class="tab-btn" data-tab="likes">Likes</button>
+                <button class="tab-btn" data-tab="about">About</button>
+              </div>
+
+              <div class="tab-content active" id="postsTab">
+                <div class="profile-posts" id="profilePosts">
+                  <!-- Profile posts will be loaded here -->
+                </div>
+              </div>
+
+              <div class="tab-content" id="mediaTab">
+                <div class="media-grid">
+                  <div class="media-item">
+                    <img
+                      src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=300&h=300&fit=crop"
+                      alt="Media"
+                    />
+                  </div>
+                  <div class="media-item">
+                    <img
+                      src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=300&h=300&fit=crop"
+                      alt="Media"
+                    />
+                  </div>
+                  <div class="media-item">
+                    <img
+                      src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=300&h=300&fit=crop"
+                      alt="Media"
+                    />
+                  </div>
+                  <div class="media-item">
+                    <img
+                      src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=300&h=300&fit=crop"
+                      alt="Media"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-content" id="likesTab">
+                <div class="liked-posts">
+                  <p>Posts you've liked will appear here.</p>
+                </div>
+              </div>
+
+              <div class="tab-content" id="aboutTab">
+                <div class="about-section">
+                  <div class="about-card">
+                    <h3>About</h3>
+                    <p>
+                      Passionate developer with 5+ years of experience in
+                      creating web applications. I love working with modern
+                      technologies and building products that make a difference.
+                    </p>
+                  </div>
+                  <div class="about-card">
+                    <h3>Work & Education</h3>
+                    <div class="experience-item">
+                      <div class="exp-icon">🏢</div>
+                      <div class="exp-details">
+                        <h4>Senior Developer at TechCorp</h4>
+                        <p>2021 - Present</p>
+                      </div>
+                    </div>
+                    <div class="experience-item">
+                      <div class="exp-icon">🎓</div>
+                      <div class="exp-details">
+                        <h4>Computer Science, Stanford University</h4>
+                        <p>2017 - 2021</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Post Detail Modal -->
+    <div id="postModal" class="modal">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Post Details</h3>
+          <button class="modal-close" id="closePostModal">×</button>
+        </div>
+        <div class="modal-body" id="postModalBody">
+          <!-- Post content will be loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Post Modal -->
+    <div id="editPostModal" class="modal">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Edit Post</h3>
+          <button class="modal-close" id="closeEditModal">×</button>
+        </div>
+        <div class="modal-body">
+          <form id="editPostForm">
+            <div class="form-group">
+              <textarea
+                id="editPostContent"
+                placeholder="What's on your mind?"
+                maxlength="500"
+              ></textarea>
+              <div class="char-counter">
+                <span id="editCharCount">0</span>/500
+              </div>
+            </div>
+            <div class="modal-actions">
+              <button type="button" class="btn btn-outline" id="cancelEdit">
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary btn-ripple">
+                <span class="btn-text">Update Post</span>
+                <div class="btn-loader hidden">
+                  <div class="btn-spinner"></div>
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Dropdown -->
+    <div id="notificationsDropdown" class="notifications-dropdown">
+      <div class="notifications-header">
+        <h3>Notifications</h3>
+        <button class="mark-all-read">Mark all as read</button>
+      </div>
+      <div class="notifications-list">
+        <div class="notification-item unread">
+          <div class="notification-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1494790108755-2616b612e886?w=50&h=50&fit=crop&crop=face"
+              alt="User"
+            />
+          </div>
+          <div class="notification-content">
+            <p><strong>Sarah Johnson</strong> liked your post</p>
+            <span class="notification-time">2 minutes ago</span>
+          </div>
+          <div class="notification-dot"></div>
+        </div>
+        <div class="notification-item unread">
+          <div class="notification-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face"
+              alt="User"
+            />
+          </div>
+          <div class="notification-content">
+            <p><strong>Mike Chen</strong> commented on your post</p>
+            <span class="notification-time">5 minutes ago</span>
+          </div>
+          <div class="notification-dot"></div>
+        </div>
+        <div class="notification-item">
+          <div class="notification-avatar">
+            <img
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face"
+              alt="User"
+            />
+          </div>
+          <div class="notification-content">
+            <p><strong>Emma Wilson</strong> started following you</p>
+            <span class="notification-time">1 hour ago</span>
+          </div>
+        </div>
+      </div>
+      <div class="notifications-footer">
+        <a href="#" class="view-all">View all notifications</a>
+      </div>
+    </div>
+
+    <script src="/v4/script.js"></script>
+  </body>
+</html>

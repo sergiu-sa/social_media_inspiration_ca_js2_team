@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialConnect - Connect Simply</title>
+    <link rel="stylesheet" href="/v3/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1 class="logo">SocialConnect</h1>
+            </div>
+            
+            <div class="nav-center">
+                <div class="search-container">
+                    <div class="search-icon">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M7.25 12.25C10.0114 12.25 12.25 10.0114 12.25 7.25C12.25 4.48858 10.0114 2.25 7.25 2.25C4.48858 2.25 2.25 4.48858 2.25 7.25C2.25 10.0114 4.48858 12.25 7.25 12.25Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13.75 13.75L11 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <input type="text" class="search-input" placeholder="Search" id="searchInput">
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="nav-links">
+                    <a href="#" class="nav-link active" onclick="showPage('feed')">Home</a>
+                    <a href="#" class="nav-link" onclick="showPage('profile')">Profile</a>
+                </div>
+                
+                <div class="user-menu">
+                    <button class="avatar-btn" onclick="toggleDropdown()">
+                        <span class="avatar">JD</span>
+                    </button>
+                    <div class="dropdown-menu" id="userDropdown">
+                        <div class="dropdown-content">
+                            <a href="#" onclick="showPage('profile')" class="dropdown-item">
+                                <span>Profile</span>
+                            </a>
+                            <a href="#" onclick="showSettings()" class="dropdown-item">
+                                <span>Settings</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" onclick="logout()" class="dropdown-item text-red">
+                                <span>Sign Out</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Page -->
+    <div class="page active" id="loginPage">
+        <div class="auth-container">
+            <div class="auth-content">
+                <div class="auth-header">
+                    <h1>Welcome back</h1>
+                    <p>Sign in to your account</p>
+                </div>
+                
+                <div id="loginMessage"></div>
+                
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="loginEmail" class="form-label">Email</label>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary full-width">Sign In</button>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="#" onclick="showPage('register')" class="text-link">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Page -->
+    <div class="page" id="registerPage">
+        <div class="auth-container">
+            <div class="auth-content">
+                <div class="auth-header">
+                    <h1>Create Account</h1>
+                    <p>Join our community today</p>
+                </div>
+                
+                <div id="registerMessage"></div>
+                
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="registerName" class="form-label">Full Name</label>
+                        <input type="text" id="registerName" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerEmail" class="form-label">Email</label>
+                        <input type="email" id="registerEmail" class="form-input" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPassword" class="form-label">Password</label>
+                        <input type="password" id="registerPassword" class="form-input" placeholder="Create a password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerBio" class="form-label">Bio (Optional)</label>
+                        <textarea id="registerBio" class="form-textarea" rows="3" placeholder="Tell us about yourself"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary full-width">Create Account</button>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="#" onclick="showPage('login')" class="text-link">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feed Page -->
+    <div class="page" id="feedPage">
+        <div class="main-container">
+            <div class="content-wrapper">
+                <!-- Create Post Card -->
+                <div class="card create-post-card">
+                    <div class="create-post-content">
+                        <div class="user-avatar">
+                            <span class="avatar">JD</span>
+                        </div>
+                        <div class="create-post-form">
+                            <textarea id="newPostContent" class="post-textarea" placeholder="What's on your mind?"></textarea>
+                            <div class="create-post-actions">
+                                <div class="post-options">
+                                    <button type="button" class="post-option-btn" title="Add photo">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M16.667 5H14.583l-1.25-2.5h-6.666l-1.25 2.5H3.333c-.916 0-1.666.75-1.666 1.667v8.333c0 .917.75 1.667 1.666 1.667h13.334c.916 0 1.666-.75 1.666-1.667V6.667c0-.917-.75-1.667-1.666-1.667z" stroke="currentColor" stroke-width="1.5"/>
+                                            <circle cx="10" cy="10.833" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="post-option-btn" title="Add emoji">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.5"/>
+                                            <path d="M6.5 12.5s1 2 3.5 2 3.5-2 3.5-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            <circle cx="7.5" cy="8.5" r="1" fill="currentColor"/>
+                                            <circle cx="12.5" cy="8.5" r="1" fill="currentColor"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <button type="button" class="btn-primary" onclick="createPost()">Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posts Container -->
+                <div id="postsContainer" class="posts-container">
+                    <!-- Posts will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Page -->
+    <div class="page" id="profilePage">
+        <div class="main-container">
+            <div class="content-wrapper">
+                <!-- Profile Header -->
+                <div class="card profile-header-card">
+                    <div class="profile-header-content">
+                        <div class="profile-avatar">
+                            <span class="avatar large" id="profileAvatar">JD</span>
+                        </div>
+                        <div class="profile-info">
+                            <h2 class="profile-name" id="profileName">John Doe</h2>
+                            <p class="profile-bio" id="profileBio">Software Developer</p>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="profilePosts">42</span>
+                                <span class="stat-label">Posts</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="profileFollowers">1.2K</span>
+                                <span class="stat-label">Followers</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="profileFollowing">567</span>
+                                <span class="stat-label">Following</span>
+                            </div>
+                        </div>
+                        <button class="btn-secondary">Edit Profile</button>
+                    </div>
+                </div>
+
+                <!-- User Posts -->
+                <div id="userPostsContainer" class="posts-container">
+                    <!-- User posts will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Modal -->
+    <div class="modal" id="postModal">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Post</h3>
+                <button class="modal-close-btn" onclick="closeModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modalPostContent">
+                <!-- Post content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Post Modal -->
+    <div class="modal" id="editPostModal">
+        <div class="modal-backdrop" onclick="closeEditModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Post</h3>
+                <button class="modal-close-btn" onclick="closeEditModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editPostForm">
+                    <div class="form-group">
+                        <label for="editPostContent" class="form-label">Content</label>
+                        <textarea id="editPostContent" class="form-textarea" rows="6" required></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" onclick="closeEditModal()">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/v3/script.js"></script>
+</body>
+</html>
