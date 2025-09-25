@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/test_sergiu/style.css" />
+  </head>
+  <body>
+    <!-- Profile Page -->
+    <div id="profilePage" class="page">
+      <div class="profile-container">
+        <div class="profile-cover">
+          <img
+            src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&h=300&fit=crop"
+            alt="Cover"
+            class="cover-image"
+          />
+          <div class="cover-overlay"></div>
+          <button class="edit-cover-btn">
+            <span class="icon">📷</span>
+            <span>Edit Cover</span>
+          </button>
+        </div>
+
+        <div class="profile-info">
+          <div class="profile-avatar-section">
+            <div class="profile-avatar">
+              <img
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face"
+                alt="Profile"
+              />
+              <div class="online-status large"></div>
+              <button class="edit-avatar-btn">
+                <span class="icon">📷</span>
+              </button>
+            </div>
+            <div class="profile-details">
+              <h1>John Doe</h1>
+              <p class="profile-bio">
+                🚀 Full-stack developer passionate about creating amazing user
+                experiences. Coffee enthusiast ☕ | Tech lover 💻
+              </p>
+              <div class="profile-meta">
+                <span class="meta-item">
+                  <span class="icon">📍</span>
+                  <span>San Francisco, CA</span>
+                </span>
+                <span class="meta-item">
+                  <span class="icon">📅</span>
+                  <span>Joined March 2023</span>
+                </span>
+                <span class="meta-item">
+                  <span class="icon">🔗</span>
+                  <span>johndoe.dev</span>
+                </span>
+              </div>
+            </div>
+            <div class="profile-actions">
+              <button class="btn btn-outline btn-ripple">
+                <span class="btn-text">Edit Profile</span>
+              </button>
+              <button class="btn btn-primary btn-ripple">
+                <span class="btn-text">Share Profile</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="profile-stats">
+            <div class="stat-card">
+              <div class="stat-number">1,234</div>
+              <div class="stat-label">Posts</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">15.2K</div>
+              <div class="stat-label">Followers</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">892</div>
+              <div class="stat-label">Following</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">45.8K</div>
+              <div class="stat-label">Likes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-content">
+          <div class="profile-tabs">
+            <button class="tab-btn active" data-tab="posts">Posts</button>
+            <button class="tab-btn" data-tab="media">Media</button>
+            <button class="tab-btn" data-tab="likes">Likes</button>
+            <button class="tab-btn" data-tab="about">About</button>
+          </div>
+
+          <div class="tab-content active" id="postsTab">
+            <div class="profile-posts" id="profilePosts">
+              <!-- Profile posts will be loaded here -->
+            </div>
+          </div>
+
+          <div class="tab-content" id="mediaTab">
+            <div class="media-grid">
+              <div class="media-item">
+                <img
+                  src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=300&h=300&fit=crop"
+                  alt="Media"
+                />
+              </div>
+              <div class="media-item">
+                <img
+                  src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=300&h=300&fit=crop"
+                  alt="Media"
+                />
+              </div>
+              <div class="media-item">
+                <img
+                  src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=300&h=300&fit=crop"
+                  alt="Media"
+                />
+              </div>
+              <div class="media-item">
+                <img
+                  src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=300&h=300&fit=crop"
+                  alt="Media"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="likesTab">
+            <div class="liked-posts">
+              <p>Posts you've liked will appear here.</p>
+            </div>
+          </div>
+
+          <div class="tab-content" id="aboutTab">
+            <div class="about-section">
+              <div class="about-card">
+                <h3>About</h3>
+                <p>
+                  Passionate developer with 5+ years of experience in creating
+                  web applications. I love working with modern technologies and
+                  building products that make a difference.
+                </p>
+              </div>
+              <div class="about-card">
+                <h3>Work & Education</h3>
+                <div class="experience-item">
+                  <div class="exp-icon">🏢</div>
+                  <div class="exp-details">
+                    <h4>Senior Developer at TechCorp</h4>
+                    <p>2021 - Present</p>
+                  </div>
+                </div>
+                <div class="experience-item">
+                  <div class="exp-icon">🎓</div>
+                  <div class="exp-details">
+                    <h4>Computer Science, Stanford University</h4>
+                    <p>2017 - 2021</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
